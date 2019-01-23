@@ -42,7 +42,7 @@ insert into public.dim_tempo (
 )
 -- gera as datas
 select 
-    -- gera ID com capturando somente os numeros contidos na data-hora    
+    -- gera ID capturando somente os numeros contidos na data-hora    
     regexp_replace(dia::text, '[^0-9]+', '', 'g')::bigint as id_tempo,
     
     -- captura o ano
@@ -127,7 +127,7 @@ select
     -- Gera um intervalo de tempo para alimentar a tabela
     -- 
     select generate_series(
-            -- define o inicio do intervalo (hoje menos 10 anos)
+            -- define o inicio do intervalo (hoje menos 1 ano)
             date (now()::timestamp - interval '1 year')::timestamp,
             
             -- define o fim do intervalo (hoje, agora) 
